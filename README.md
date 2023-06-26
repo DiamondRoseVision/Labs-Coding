@@ -14,7 +14,7 @@ Kali Linux - Penetration Testing,
 Windows + Linux Server & Security Management,
 Cisco Network Engineering,
 Mock Cybersecurity Tasks,
-Vulnerability Scanning,
+Vulnerability Scanning + Assessment,
 Passive + active Nmap network scanning,
 VM installation + configuration,
 Decentralized Node installation + configuration,
@@ -22,6 +22,4 @@ IDS configuration,
 PostgreSQL,
 Synk
 Suricata,
-NMAP
 Decentralized Node Configuration + Management
-Nessus
