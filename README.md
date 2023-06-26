@@ -1,11 +1,13 @@
 This repository includes labs & hands on experience including the following areas:
 
 Python,
-HTML,
+Linux,
 JavaScript,
+SQL,
 CSS,
 Java,
-Linux,
+HTML,
+
 Hardware Builds,
 Amazon Cloud Configuration Labs from courses (Web Developer, SysOps, Cloud Practioner certification alignment),
 Kali Linux - Penetration Testing,
@@ -17,4 +19,8 @@ Passive + active Nmap network scanning,
 VM installation + configuration,
 Decentralized Node installation + configuration,
 IDS configuration,
-Postgre RDS,
+PostgreSQL,
+Synk
+Suricata,
+NMAP
+Decentralized Node Configuration + Management
