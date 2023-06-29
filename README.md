@@ -20,6 +20,7 @@ VM installation + configuration,
 Decentralized Node installation + configuration,
 IDS configuration,
 PostgreSQL,
+Puppet
 Synk
 Suricata,
 Decentralized Node Configuration + Management
