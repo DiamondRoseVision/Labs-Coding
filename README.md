@@ -10,6 +10,8 @@ HTML,
 
 Hardware Builds,
 Amazon Cloud Configuration Labs from courses (Web Developer, SysOps, Cloud Practioner certification alignment),
+Google Cloud,
+Github,
 Kali Linux - Penetration Testing,
 Windows + Linux Server & Security Management,
 Cisco Network Engineering,
@@ -24,3 +26,4 @@ Puppet
 Synk
 Suricata,
 Decentralized Node Configuration + Management
+Windows & Linux Server System + Network Admin Labs,
