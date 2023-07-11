@@ -1,4 +1,4 @@
-This repository includes labs & hands on experience including the following areas:
+This repository includes labs & hands on experience including the following areas (Please keep in mind the language percentages are not accurate to to screenshots of labs not being counted):
 
 Python,
 Linux,
