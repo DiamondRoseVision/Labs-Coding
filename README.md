@@ -26,4 +26,4 @@ Puppet
 Synk
 Suricata,
 Decentralized Node Configuration + Management
-Windows & Linux Server System + Network Admin Labs,
+
