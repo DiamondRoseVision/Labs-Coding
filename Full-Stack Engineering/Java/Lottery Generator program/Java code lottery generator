@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+import java.util.Random;
+
+System.out.print("How many tickets would you like to purchase?");
+
+public class lotteryGen {
+
+   public static void main(String[] args) {
+
+     Scanner scnr = new Scanner(System.in);
+
+     Random rand = new Random();
+
+     int numTickets;
+
+     int[] ticketNumbers = new int[5];
+
+     numTickets = scnr.nextInt();
+
+
+
+     for (int i = numTickets; i > 0; i--) {
+
+       for (int t = 0; t < ticketNumbers.length; t++) {
+
+         ticketNumbers[t] = rand.nextInt(100);
+
+         System.out.print(ticketNumbers[t] + " "); 
+
+      }
+
+
+
+       System.out.print("\n");     
+
+    }
+
+  }
+
+}
