@@ -1,0 +1,63 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      int total = scnr.nextInt();
+      int placehold;
+      int dollar = 100;
+      int quarter = 25;
+      int dime = 10;
+      int nickel = 5;
+      int penny = 1;
+      if (total == 0) {
+         System.out.println("No change");
+      }
+      if (total >= 100) {
+         placehold = total / dollar;
+         if (placehold > 1) {
+            System.out.println(placehold + " Dollars");
+         } else {
+            System.out.println(placehold + " Dollar");
+         }
+         total %= dollar;
+      }
+      if (total >= 25) {
+         placehold = total / quarter;
+         if (placehold > 1) { 
+            System.out.println(placehold + " Quarters");
+         } else {
+            System.out.println(placehold + " Quarter");
+         }
+         total %= quarter;
+      }
+      if (total >= 10) {
+         placehold = total / dime;
+         if (placehold > 1) {
+            System.out.println(placehold + " Dimes");
+         } else {
+            System.out.println(placehold + " Dime");
+         }            
+         total %= dime;
+      }
+      if (total >= 5) {
+         placehold = total / nickel;
+         if (placehold > 1) {
+            System.out.println(placehold + " Nickels");
+         } else {
+            System.out.println(placehold + " Nickel");
+         }
+         total %= 5;
+      }
+      if (total >= 1) {
+         placehold = total / penny;
+         if (placehold > 1) {
+            System.out.println(placehold + " Pennys");
+         } else { 
+            System.out.println(placehold + " Penny");
+         }
+         total %= 1;
+      }
+         
+   }
+}
