@@ -1,0 +1,21 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      int rangeL = scnr.nextInt();
+      int[] userValues = new int[rangeL];
+      int i;
+      for (i = 0; i < userValues.length; ++i) {
+         userValues[i] = scnr.nextInt();
+      }
+      int lastV = scnr.nextInt();
+      for (i = 0; i < userValues.length; ++i) {
+         if (userValues[i] <= lastV) {
+            System.out.print(userValues[i] + ",");
+         }
+      }
+      System.out.println();
+      
+   }
+}

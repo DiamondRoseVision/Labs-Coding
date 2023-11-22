@@ -1,0 +1,30 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      int[] userValues = new int[15];  // Set of data specified by the user      
+      int i = 0;
+      int c = 0;
+      int l = 0;
+
+      while (scnr.hasNextInt()) {
+         userValues[i] = scnr.nextInt();
+         ++i;  
+      }
+
+      for (i = 0; i < userValues.length; ++i) {
+        if (userValues[i] < 0) {
+            userValues[i] = 0;
+        } else if (userValues[i] > 0) {
+            ++c;
+        }
+      }
+      
+      if (c > 9) {
+         System.out.println("Too many numbers");  
+      } else {
+         System.out.println("Middle item: " + userValues[c / 2]);
+      }
+   }
+}
