@@ -2,14 +2,17 @@ This repository includes labs & hands on experience including the following area
 
 Python,
 Linux,
-JavaScript,
-SQL,
+MySQL,
+pgSQL,
 CSS,
-Java,
 HTML,
+JavaScript,
+Java,
+
+
 
 Hardware Builds,
-Amazon Cloud Configuration Labs from courses (Web Developer, SysOps, Cloud Practioner certification alignment),
+Amazon Cloud Configuration Labs from courses (Web Developer, SysOps, Cloud Practioner),
 Google Cloud,
 Github,
 Kali Linux - Penetration Testing,
