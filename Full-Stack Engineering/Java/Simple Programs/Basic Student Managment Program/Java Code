@@ -1,0 +1,68 @@
+import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.io.IOException;
+
+public class LabProgram {
+   public static void main(String[] args) throws IOException {
+      double mid1 = 0;
+      double mid2 = 0;
+      double mid3 = 0;
+      Double grade1;
+      Double grade2;
+      Double grade3;
+      double midAvg1;
+      double midAvg2;
+      double midAvg3;
+      int numStud = 0;
+      double average;
+      
+      Scanner scnr = new Scanner(System.in);
+      Scanner inFS = null;
+      String fileIn = scnr.nextLine();
+      FileInputStream fileByteStream = null;
+      fileByteStream = new FileInputStream(fileIn);
+      inFS = new Scanner(fileByteStream);      
+      
+      FileOutputStream fileStream = new FileOutputStream("report.txt");
+      PrintWriter outFS = new PrintWriter(fileStream);
+      
+      while (inFS.hasNext()) {
+         String firstName = inFS.next();
+         String lastName = inFS.next();
+         grade1 = inFS.nextDouble();
+         grade2 = inFS.nextDouble();
+         grade3 = inFS.nextDouble();
+         mid1 += grade1;
+         mid2 += grade2;
+         mid3 += grade3;
+         numStud += 1;
+         average = (grade1 + grade2 + grade3) / 3;
+         int g1 = grade1.intValue();
+         int g2 = grade2.intValue();
+         int g3 = grade3.intValue();
+         outFS.printf(firstName + "\t" + lastName + "\t" + g1 + "\t"+ g2 + "\t" + g3);
+         
+         if (average >= 90) {
+            outFS.printf("\t" + "A\n");
+         } else if (average >= 80) {
+            outFS.printf("\t" + "B\n");
+         } else if (average >= 70) {
+            outFS.printf("\t" + "C\n");
+         } else if (average >= 60) {
+            outFS.printf("\t" + "D\n");
+         } else if (average < 60) {
+            outFS.printf("\t" + "F\n");
+         }
+      }
+      
+      
+      midAvg1 = mid1 / numStud;
+      midAvg2 = mid2 / numStud;
+      midAvg3 = mid3 / numStud;
+      outFS.printf("\nAverages: Midterm1 %.2f, Midterm2 %.2f, Final %.2f\n", midAvg1, midAvg2, midAvg3);
+      outFS.close();
+      
+   }
+}

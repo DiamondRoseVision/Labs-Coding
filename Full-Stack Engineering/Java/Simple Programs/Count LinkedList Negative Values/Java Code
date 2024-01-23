@@ -1,0 +1,74 @@
+// ===== Code from file IntNode.java =====
+public class IntNode {
+   private int dataVal;
+   private IntNode nextNodePtr;
+
+   public IntNode(int dataInit, IntNode nextLoc) {
+      this.dataVal = dataInit;
+      this.nextNodePtr = nextLoc;
+   }
+
+   public IntNode(int dataInit) {
+      this.dataVal = dataInit;
+      this.nextNodePtr = null;
+   }
+
+   public void insertAfter(IntNode nodePtr) {
+      IntNode tmpNext;
+
+      tmpNext = this.nextNodePtr;    // Remember next
+      this.nextNodePtr = nodePtr;    // this -- node -- ?
+      nodePtr.nextNodePtr = tmpNext; // this -- node -- next
+   }
+
+   // Grab location pointed by nextNodePtr
+   public IntNode getNext() {
+      return this.nextNodePtr;
+   }
+   public int getDataVal() {
+      return this.dataVal;
+   }
+}
+// ===== end =====
+
+// ===== Code from file CustomLinkedList.java =====
+import java.util.Random;
+
+public class CustomLinkedList {
+   public static void main(String[] args) {
+      Random randGen = new Random();
+      IntNode headObj; // Create IntNode reference variables
+      IntNode currObj;
+      IntNode lastObj;
+      int i;      // Loop index
+      int negativeCntr;
+
+      negativeCntr = 0;
+      headObj = new IntNode(-1); // Front of nodes list
+      lastObj = headObj;
+
+      for (i = 0; i < 10; ++i) { // Append 10 rand nums
+         int rand = randGen.nextInt(21) - 10;
+         currObj = new IntNode(rand);
+         lastObj.insertAfter(currObj); // Append curr
+         lastObj = currObj; // Curr is the new last item
+      }
+
+      currObj = headObj; // Print the list
+      while (currObj != null) {
+         System.out.print(currObj.getDataVal() + ", ");
+         currObj = currObj.getNext();
+      }
+      System.out.println("");
+
+      currObj = headObj; // Count number of negative numbers
+      while (currObj != null) {
+         if (currObj.getDataVal() < 0) {
+            negativeCntr += 1;
+         }  
+         currObj = currObj.getNext();
+      }
+      System.out.println("Number of negatives: " + negativeCntr);
+   }
+}
+// ===== end =====

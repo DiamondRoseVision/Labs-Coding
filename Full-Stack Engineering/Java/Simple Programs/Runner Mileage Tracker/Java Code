@@ -1,0 +1,90 @@
+//MileageTrackerLinkedList.java
+import java.util.Scanner;
+
+public class MileageTrackerLinkedList {
+   public static void main (String[] args) {
+      Scanner scnr = new Scanner(System.in);
+
+      // References for MileageTrackerNode objects
+      MileageTrackerNode headNode;                                           
+      MileageTrackerNode currNode;
+      MileageTrackerNode lastNode;
+
+      double miles;
+      String date;
+      int i;
+
+      // Front of nodes list                                                                         
+      headNode = new MileageTrackerNode();
+      lastNode = headNode;
+
+      // TODO: Scan the number of nodes
+         i = scnr.nextInt();
+
+      // TODO: For the scanned number of nodes, scan
+      //       in data and insert into the linked list
+         while (i > 0) {
+            miles = scnr.nextDouble();
+            date = scnr.next();
+            currNode = new MileageTrackerNode(miles, date);
+            headNode.insertAfter(currNode);
+            currNode.printNodeData();
+            --i;
+         }
+            
+
+      // TODO: Call the printNodeData() method 
+      //       to print the entire linked list
+            
+   }
+}
+
+
+//MileageTrackerNode.java
+public class MileageTrackerNode {
+   private double miles;         // Node data                                                         
+   private String date;          // Node data
+   private MileageTrackerNode nextNodeRef; // Reference to the next node                              
+
+   public MileageTrackerNode() {
+      miles = 0.0;
+      date = "";
+      nextNodeRef = null;
+   }
+
+   // Constructor                                                                                     
+   public MileageTrackerNode(double milesInit, String dateInit) {
+      this.miles = milesInit;
+      this.date = dateInit;
+      this.nextNodeRef = null;
+   }
+
+   // Constructor                                                                                     
+   public MileageTrackerNode(double milesInit, String dateInit, MileageTrackerNode nextLoc) {
+      this.miles = milesInit;
+      this.date = dateInit;
+      this.nextNodeRef = nextLoc;
+   }
+
+   /* Insert node after this node.                                                                    
+   Before: this -- next                                                                               
+   After:  this -- node -- next                                                                       
+   */
+   public void insertAfter(MileageTrackerNode nodeLoc) {
+      MileageTrackerNode tmpNext;
+
+      tmpNext = this.nextNodeRef;
+      this.nextNodeRef = nodeLoc;
+      nodeLoc.nextNodeRef = tmpNext;
+   }
+
+   // Get location pointed by nextNodeRef                                                             
+   public MileageTrackerNode getNext() {
+      return this.nextNodeRef;
+   }
+
+   public void printNodeData() {
+      System.out.println(this.miles + ", " + this.date);
+   }
+}
+	

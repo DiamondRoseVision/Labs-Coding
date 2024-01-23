@@ -1,0 +1,106 @@
+//Artwork.java
+
+public class Artwork {
+  private String title;
+  private int yearCreated;
+  private Artist artist; 
+
+   Artwork() {
+      this.title = "unknown";
+      this.yearCreated= -1;
+      artist = new Artist();
+   }
+   
+   public String getTitle() {
+      return title;
+   }
+   public int getYearCreated() {
+      return yearCreated;
+   }
+
+   Artwork (String name, int year, Artist artist) {
+      this.title = name;
+      this.yearCreated = year;
+      this.artist = artist; 
+   }
+
+  public void printInfo() {
+     artist.printInfo();
+     System.out.println("Title: " + title + ", " + yearCreated); 
+   }
+}
+
+
+//Artist.java
+
+
+public class Artist {
+   private String artistName;
+   private int birthYear;
+   private int deathYear;
+
+   public Artist() {
+      this.artistName = "unknown";
+      this.birthYear = -1;
+      this.deathYear = -1;
+   }
+
+   public Artist(String name, int birth, int death) {
+      this.artistName = name;
+      this.birthYear = birth;
+      this.deathYear = death;
+   }
+   
+   public String getName() {
+      return artistName;
+   }   
+   
+   public int getBirthYear(){
+      return birthYear;
+   }   
+      
+   public int getDeathYear(){
+      return deathYear;
+   }
+      
+
+   public void printInfo() {
+      System.out.print("Artist: ");
+      System.out.print(artistName);
+      if ( (deathYear > 0) && (birthYear > 0) ) {
+         System.out.println( " (" + birthYear + " to " + deathYear + ")" );
+      } else if ( (deathYear < 0) && (birthYear > 0) )  {
+         System.out.println( " (" + birthYear + " to present)" );
+      } else {
+         System.out.println(" (unknown)");
+      }
+   }
+}
+
+
+
+//artworklabel.java
+import java.util.Scanner;
+
+public class ArtworkLabel {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+
+      String userTitle, userArtistName;
+      int yearCreated, userBirthYear, userDeathYear;
+
+      userArtistName = scnr.nextLine();
+      userBirthYear = scnr.nextInt();
+      scnr.nextLine();
+      userDeathYear = scnr.nextInt();
+      scnr.nextLine();
+      userTitle = scnr.nextLine();
+      yearCreated = scnr.nextInt();
+
+      Artist userArtist = new Artist(userArtistName, userBirthYear, userDeathYear);
+
+      Artwork newArtwork = new Artwork(userTitle, yearCreated, userArtist);
+
+      newArtwork.printInfo();
+   }
+}

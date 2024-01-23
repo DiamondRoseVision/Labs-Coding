@@ -1,0 +1,34 @@
+import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class LabProgram {
+   public static void main(String[] args) throws IOException {
+      Scanner scnr = new Scanner(System.in);
+
+      String fileName = scnr.next();
+      FileInputStream fileByteStream = new FileInputStream(fileName + ".txt");
+      Scanner inFS = new Scanner(fileByteStream);
+      Scanner formFS = null;
+      
+      char compare = scnr.next().charAt(0);
+      String capture;
+      String analyze;
+      char analyzeChar;
+      int i = 0;
+      
+      while (inFS.hasNext()) {
+         analyze = inFS.next();
+         analyzeChar = analyze.charAt(0);
+         if (analyzeChar == compare) {
+            System.out.println(analyze);
+            ++i;
+         }
+      }
+      
+      if (i == 0) {
+         System.out.println("No synonyms for " + fileName + " begin with " + compare + ".");
+      }      
+      
+   }
+}

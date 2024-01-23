@@ -1,0 +1,85 @@
+//InventoryNode.java
+public class InventoryNode {
+   private String item; 
+   private int numberOfItems;
+   private InventoryNode nextNodeRef; // Reference to the next node                                   
+
+   public InventoryNode() {
+      item = "";
+      numberOfItems = 0;
+      nextNodeRef = null;
+   }
+
+   // Constructor                                                                                     
+   public InventoryNode(String itemInit, int numberOfItemsInit) {
+      this.item = itemInit;
+      this.numberOfItems = numberOfItemsInit;
+      this.nextNodeRef = null;
+   }
+
+   // Constructor                                                                                     
+   public InventoryNode(String itemInit, int numberOfItemsInit, InventoryNode nextLoc) {
+      this.item = itemInit;
+      this.numberOfItems = numberOfItemsInit;
+      this.nextNodeRef = nextLoc;
+   }
+
+   // TODO: Define an insertAtFront() method that inserts a node at the 
+   //        front of the linked list (after the dummy head node)
+    public void insertAtFront(InventoryNode head, InventoryNode curr) {
+       InventoryNode temp = new InventoryNode();
+       temp = head.nextNodeRef;
+       head.nextNodeRef = curr;
+       curr.nextNodeRef = temp;
+    }
+   
+
+   // Get location pointed by nextNodeRef                                                             
+   public InventoryNode getNext() {
+      return this.nextNodeRef;
+   }
+   
+   // Print node data
+   public void printNodeData() {
+      System.out.println(this.numberOfItems + " " + this.item);
+   }
+}
+
+//Inventory.java
+import java.util.Scanner;
+
+public class Inventory {
+   public static void main (String[] args) {
+      Scanner scnr = new Scanner(System.in);
+       
+      InventoryNode headNode;                                              
+      InventoryNode currNode;
+      InventoryNode lastNode;
+
+      String item;
+      int numberOfItems;
+      int i;
+
+      // Front of nodes list                                                                         
+      headNode = new InventoryNode();
+      lastNode = headNode;
+
+      int input = scnr.nextInt();
+
+      for(i = 0; i < input; i++ ) {
+         item = scnr.next();
+         numberOfItems = scnr.nextInt();
+         currNode = new InventoryNode(item, numberOfItems);
+         currNode.insertAtFront(headNode, currNode);
+         lastNode = currNode;
+      }
+
+      // Print linked list                                                                   
+      currNode = headNode.getNext();
+      while (currNode != null) {
+         currNode.printNodeData();
+         currNode = currNode.getNext();
+      }
+   }
+}
+

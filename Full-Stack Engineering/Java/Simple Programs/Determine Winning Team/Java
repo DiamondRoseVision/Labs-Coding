@@ -1,0 +1,69 @@
+//team.java
+public class Team {
+   private String name;
+   private int wins;
+   private int losses;
+
+   public void setName(String title) {
+      name = title;
+   }
+   
+   public void setWins(int amount) {
+      wins = amount;
+   }
+   
+   public void setLosses(int amount) {
+      losses = amount;
+   }
+   
+   public String getName() {
+      return name;
+   }
+   
+   public int getWins() {
+      return wins;
+   }
+   
+   public int getLosses() {
+      return losses;
+   }
+   
+   public double getWinPercentage() {
+     double total = wins + losses;
+     return wins / total;
+   }
+   
+   
+   public void printStanding() {
+      System.out.printf("Win percentage: %.2f\n", getWinPercentage());
+      if (getWinPercentage() < .50) {
+         System.out.println("Team " + name + " has a losing average.");
+      } else {
+         System.out.println("Congratulations, Team " + name + " has a winning average!");
+      }
+   }
+   
+}
+
+
+//winningteam.java
+
+import java.util.Scanner;
+
+public class WinningTeam {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      
+      Team team = new Team();
+      
+      String name = scnr.next();
+      int wins = scnr.nextInt();
+      int losses = scnr.nextInt();
+      
+      team.setName(name);
+      team.setWins(wins);
+      team.setLosses(losses);
+      
+      team.printStanding();
+   }
+}

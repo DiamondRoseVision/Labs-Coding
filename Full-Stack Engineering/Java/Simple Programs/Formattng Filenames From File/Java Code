@@ -1,0 +1,28 @@
+import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class LabProgram {
+   public static void main(String[] args) throws IOException {
+      Scanner scnr = new Scanner(System.in);
+      FileInputStream fileByteStream = null;
+      Scanner inFS = null;      
+      String fileIn = scnr.nextLine();
+
+      fileByteStream = new FileInputStream(fileIn);
+      inFS = new Scanner(fileByteStream);
+
+      while (inFS.hasNext()) {
+         String line = inFS.nextLine();
+         if (line.contains("_photo.jpg")) {
+            line = line.replace("_photo.jpg", "_info.txt");
+            System.out.println(line);
+         } else {
+            System.out.println(line);
+         }
+      }      
+   
+   }
+}
+            
+
