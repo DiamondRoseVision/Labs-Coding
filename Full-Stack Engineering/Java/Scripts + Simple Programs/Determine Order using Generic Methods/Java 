@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class WhatOrder {
+
+   public static <TheType extends Comparable<TheType>>
+      Integer checkOrder(TheType one, TheType two, TheType three, TheType four) {                 
+         if ( (one.compareTo(two) > 0 && (two.compareTo(three) > 0)) &&  (three.compareTo(four) > 0) ) {
+                  return 1;
+         }
+         else if ( (one.compareTo(two) < 0 && (two.compareTo(three) < 0)) &&  (three.compareTo(four) < 0) ) {
+                  return -1;
+         }
+         else {
+            return 0;
+         }
+      }
+
+
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+
+      // Check order of four strings
+      System.out.println("Order: " + checkOrder(scnr.next(), scnr.next(), scnr.next(), scnr.next())); 
+
+      // Check order of four doubles
+      System.out.println("Order: " + checkOrder(scnr.nextDouble(), scnr.nextDouble(), scnr.nextDouble(), scnr.nextDouble()));
+   }
+}

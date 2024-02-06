@@ -1,0 +1,82 @@
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+public class LabProgram {
+   // Input 5 Integers and return the Integers in an ArrayList
+   public static ArrayList<Integer> inputIntegers(Scanner scnr) {
+      ArrayList<Integer> numArray = new ArrayList<Integer>();
+      for (int i = 0; i < 5; ++i) {
+          int x = scnr.nextInt();
+          numArray.add(x);
+      }
+      return numArray;
+   }
+   // Input 5 Doubles and return the Doubles in an ArrayList
+   public static ArrayList<Double> inputDoubles(Scanner scnr) {
+    ArrayList<Double> doubArray = new ArrayList<Double>();
+    for (int i = 0; i < 5; ++i) {
+        Double d = scnr.nextDouble();
+        doubArray.add(d);
+    }
+    return doubArray;
+   }
+
+   // Input 5 Strings, and return the Strings in an ArrayList
+   public static ArrayList<String> inputWords(Scanner scnr) {
+    ArrayList<String> strArray = new ArrayList<String>();
+    for (int i = 0; i < 5; ++i) {
+        String s = scnr.next();
+        strArray.add(s);
+    }
+    return strArray;
+   }
+   
+   // Output the elements of the ArrayList parameter
+   public static <TheType extends Comparable<TheType>>
+      void print(ArrayList<TheType> list) {
+        for (int i = 0; i < list.size(); ++i) {
+            System.out.print(list.get(i) + " ");
+        }
+        System.out.println();
+   }
+
+   // Return the min, median, and max of the ArrayList parameter in a new ArrayList
+   public static <TheType extends Comparable<TheType>>
+      ArrayList<TheType> getStatistics(ArrayList<TheType> list) {
+        Collections.sort(list);
+        ArrayList<TheType> statistics = new ArrayList<TheType>();
+        statistics.add(Collections.min(list));
+        statistics.add(list.get(list.size() / 2));
+        statistics.add(Collections.max(list));
+        return statistics;
+    }
+
+
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+
+      // Input a list of 5 Integers and print the ArrayList's statistics
+      ArrayList<Integer> integers = inputIntegers(scnr);
+      print(integers);
+
+      ArrayList<Integer> integerStatistics = getStatistics(integers);
+      print(integerStatistics);
+      System.out.println();
+
+      // Input a list of 5 Doubles and print the ArrayList's statistics
+      ArrayList<Double> doubles = inputDoubles(scnr);
+      print(doubles);
+
+      ArrayList<Double> doubleStatistics = getStatistics(doubles);
+      print(doubleStatistics);
+      System.out.println();
+
+      // Input a list of 5 words (Strings) and print the ArrayList's statistics
+      ArrayList<String> words = inputWords(scnr);
+      print(words);
+      
+      ArrayList<String> wordStatistics = getStatistics(words);
+      print(wordStatistics);
+   }
+}

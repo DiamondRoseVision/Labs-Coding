@@ -1,0 +1,57 @@
+
+//shoppingList.java
+
+import java.util.Scanner;
+import java.util.LinkedList;
+
+public class ShoppingList {
+   public static void main (String[] args) {
+      Scanner scnr = new Scanner(System.in);
+
+      // Declare a LinkedList called shoppingList of type ListItem
+      LinkedList<ListItem> shoppingList = new LinkedList<ListItem>();
+
+      String item;
+      // Scan inputs (items) and add them to the shoppingList LinkedList
+      //       Read inputs until a -1 is input
+
+      item = scnr.nextLine();
+      while (!(item.equals("-1"))) {
+        shoppingList.add(new ListItem(item));
+        item = scnr.nextLine();
+      }
+      
+      //Print the shoppingList LinkedList using the printNodeData() method
+      int i = 0;
+      while (i < shoppingList.size()) {
+         shoppingList.get(i).printNodeData();
+         ++i;
+      } 
+   
+
+   }
+}
+
+---------------------------------------------------------------------------------------------------
+
+
+//ListItem.java
+
+
+public class ListItem {
+    private String item;
+
+    public ListItem() {
+        item = "";
+    }
+
+    public ListItem(String itemInit) {
+        this.item = itemInit;
+    }
+
+    // Print this node                                                                                   
+    public void printNodeData() {
+        System.out.println(this.item);
+    }
+}
+

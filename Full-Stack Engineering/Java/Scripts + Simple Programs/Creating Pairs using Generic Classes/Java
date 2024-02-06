@@ -1,0 +1,98 @@
+//pair.java
+
+
+public class Pair <TheType extends Comparable<TheType>> {
+    private TheType firstVal;
+    private TheType secondVal;
+ 
+    
+    public Pair(TheType first, TheType second) {
+        this.firstVal = first;
+        this.secondVal = second;
+    }
+ 
+    public String toString() {
+       return String.format("[" + firstVal + ", " + secondVal + "]");
+    }
+    
+    public int compareTo(Pair<TheType> otherPair) {
+       int comparisonValue = firstVal.compareTo(otherPair.firstVal);
+       if (comparisonValue == 0) {
+        comparisonValue = this.secondVal.compareTo(otherPair.secondVal);
+       }
+       return comparisonValue;
+    }
+
+
+    public char comparisonSymbol(Pair<TheType> otherPair) {
+       int result = this.firstVal.compareTo(otherPair.firstVal);
+       
+       if (result == 0) {
+           result = this.secondVal.compareTo(otherPair.secondVal);
+       }
+       
+       if (result > 0) {
+           return '>';
+       } else if (result < 0) {
+           return '<';
+       } else {
+           return '=';
+       }
+}
+}
+
+
+---------------------------------------------------------------------------------------------------
+
+//LabProgram.java
+
+
+import java.util.Scanner;
+public class LabProgram {
+   public static Pair<Integer> readIntegerPair(Scanner scnr) {
+      Integer val1 = scnr.nextInt();
+      Integer val2 = scnr.nextInt();
+      Pair<Integer> intPair = new Pair<Integer>(val1, val2);      
+      return intPair;
+   }
+   public static Pair<Double> readDoublePair(Scanner scnr) {
+      Double val1 = scnr.nextDouble();
+      Double val2 = scnr.nextDouble();
+      Pair<Double> doubPair = new Pair<Double>(val1, val2);      
+      return doubPair;
+   }
+   public static Pair<String> readWordPair(Scanner scnr) {
+      String val1 = scnr.next();
+      String val2 = scnr.next();
+      Pair<String> doubPair = new Pair<String>(val1, val2);      
+      return doubPair;
+   }
+
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      Pair<Integer> integerPair1 = readIntegerPair(scnr);
+      Pair<Integer> integerPair2 = readIntegerPair(scnr);
+      char intSym = integerPair1.comparisonSymbol(integerPair2);
+
+      Pair<Double> doublePair1 = readDoublePair(scnr);
+      Pair<Double> doublePair2 = readDoublePair(scnr);
+      char doubSym = doublePair1.comparisonSymbol(doublePair2);
+
+      Pair<String> wordPair1 = readWordPair(scnr);
+      Pair<String> wordPair2 = readWordPair(scnr);
+      char strSym = wordPair1.comparisonSymbol(wordPair2);
+      
+      System.out.print(integerPair1.toString());
+      System.out.print(" " + intSym + " ");
+      System.out.println(integerPair2.toString());
+
+      System.out.print(doublePair1.toString());
+      System.out.print(" " + doubSym + " ");
+      System.out.println(doublePair2.toString());
+
+      System.out.print(wordPair1.toString());
+      System.out.print(" " + strSym + " ");
+      System.out.println(wordPair2.toString());
+   }
+}
+
