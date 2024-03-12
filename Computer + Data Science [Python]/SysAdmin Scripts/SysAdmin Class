@@ -1,0 +1,33 @@
+ class SysAdmin:
+
+    import os
+    from os import path
+    import time
+
+    # Print the current working directory
+    @staticmethod
+    def current_directory():
+        cwd = os.getcwd()
+        print(cwd)
+
+    # Print the absolute file path
+    @staticmethod
+    def file_path(filename):
+        path=os.path.abspath(filename)
+        print(path)
+
+    # Print the current local time
+    @staticmethod
+    def get_time():
+        epc=time.time()
+        localtime=time.localtime(epc)
+        print(time.ctime(epc))
+
+    # Create a new file in specified location
+    @staticmethod
+    def createFile(dest):
+        if not (path.isfile(dest)):
+            f=open(dest, 'w')
+            f.write("Start your python file!")
+            f.close()
+
