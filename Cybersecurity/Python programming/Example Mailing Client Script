@@ -1,0 +1,37 @@
+import smtplib
+from email import encoders
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email.mime.multipart import MIMEMultipart
+
+
+server = smtplib.SMTP('smtp.name@domain.com', 25)
+server.ehlo()
+
+### IF CREDENTIALS WERE ACQUIRED, USE THIS
+server.login('replaceThis@spam1.de', 'passwordAcquired')
+
+# CRAFT EMAIL
+msg = MIMEMultipart()
+msg['From'] = 'NueralNine'
+msg['To'] = 'testmails@spam1.de'
+msg['Subject'] = 'Enter your desired subject here'
+
+with open('messageContainingFile.txt', 'r') as file:
+    message = file.read()
+
+msg.attach(MIMEText(message, 'plain'))
+
+### IF ATTACHING IMAGE
+# filename = 'exampleImage.jpg'
+# attachment = open(filename, 'rb')
+
+# payloadObject = MIMEBase('application', 'octet-stream')
+# payloadObject.set_payload(attachment.read())
+
+# encoders.encode_base64(payloadObject)
+# payloadObject.add_header('Content-Disposition, file'attachment; filename={imageFile}')
+# msg.attach(payloadObject)
+
+text = msg.as_string()
+server.sendmail('smtp.name@domain.com', 'replaceThis@spam1.de', text)
