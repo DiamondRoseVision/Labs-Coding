@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(void)
+{
+    printf("===^^===\n");
+    printf("Welcome to the Decimal To Hexadecimal Converter!\n");
+    printf("Enter a number:\n");
+
+    int num_input;
+    scanf_s("%d", &num_input);
+
+    printf("Decimal Representaion: %9d\n", num_input);
+    printf("Converted to hexadecimal: %6X\n", num_input);
+    printf("===^^===\n");
+
+    return 0;
+}
