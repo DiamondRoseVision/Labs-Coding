@@ -1,13 +1,17 @@
 This repository includes labs & hands on experience including the following areas (Please keep in mind the language percentages are not accurate to to screenshots of labs not being counted):
 
-Python,
-Linux,
-MySQL,
-pgSQL,
-CSS,
-HTML,
-JavaScript,
-Java,
+Familiar or Intermediate with:
+Python
+Linux
+Java
+MySQL
+PostgreSQL
+HTML
+CSS 
+JavaScript
+XML
+JSON
+PromQL
 
 
 
